@@ -40,10 +40,6 @@ class SearchCardViewController: UIViewController {
         cards = FlashCards.getData()
     }
     
-
-    
-
-    
 }
 
 extension SearchCardViewController: UICollectionViewDataSource {

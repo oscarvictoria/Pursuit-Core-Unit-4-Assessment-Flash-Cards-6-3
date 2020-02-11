@@ -13,17 +13,24 @@ class CardsViewController: UIViewController {
     
     public var dataPersistance: DataPersistence<FlashCards>!
     
-    
     var cardView = CardView()
     
     override func loadView() {
         view = cardView
     }
     
+    
     var cards = [FlashCards]() {
         didSet {
-            print("\(cards.count) card was saved")
+            DispatchQueue.main.async {
+                self.cardView.collectionView.reloadData()
+            }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadSavedCards()
     }
     
     override func viewDidLoad() {
@@ -32,7 +39,6 @@ class CardsViewController: UIViewController {
         cardView.collectionView.dataSource = self
         cardView.collectionView.delegate = self
         cardView.collectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "cardCell")
-        loadSavedCards()
     }
     
     func loadSavedCards() {
@@ -49,14 +55,17 @@ class CardsViewController: UIViewController {
 
 extension CardsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? FavoritesCell else {
             fatalError("error, could not get cell")
         }
+        let card = cards[indexPath.row]
+        cell.configure(for: card)
         cell.backgroundColor = .systemRed
+        cell.delegate = self
         return cell
     }
 }
@@ -72,10 +81,39 @@ extension CardsViewController: UICollectionViewDelegateFlowLayout {
 
 extension CardsViewController: DataPersistenceDelegate {
     func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        print("item was saved")
+        loadSavedCards()
     }
     
     func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        print("item was deleted")
+        loadSavedCards()
     }
 }
+
+extension CardsViewController: SavedCardCellDelegate {
+    func didSelectMoreButton(savedCardCell: FavoritesCell, card: FlashCards ) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive)  { alertAction in
+            self.deleteCard(card)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true)
+        
+    }
+    
+    private func deleteCard(_ card: FlashCards) {
+        guard let index = cards.firstIndex(of: card) else {
+            return
+        }
+        do {
+            try dataPersistance.deleteItem(at: index)
+        } catch {
+            print("error")
+        }
+    }
+}
+
+
+

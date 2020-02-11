@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol SavedCardCellDelegate: AnyObject {
+    func didSelectMoreButton(savedCardCell: FavoritesCell, card: FlashCards)
+}
+
 class FavoritesCell: UICollectionViewCell {
+    
+    public var currentCard: FlashCards!
+    
+    weak var delegate: SavedCardCellDelegate?
     
     public lazy var moreButton: UIButton = {
         let button = UIButton()
@@ -37,7 +45,7 @@ class FavoritesCell: UICollectionViewCell {
     }
     
   @objc private func moreButtonPressed() {
-    print("more button pressed")
+    delegate?.didSelectMoreButton(savedCardCell: self, card: currentCard)
     }
     
     private func commonInit() {
@@ -64,6 +72,11 @@ class FavoritesCell: UICollectionViewCell {
             moreButton.heightAnchor.constraint(equalToConstant: 32),
             moreButton.widthAnchor.constraint(equalTo:  moreButton.heightAnchor)
         ])
+    }
+    
+    public func configure(for card: FlashCards) {
+        currentCard = card
+        cardTitle.text = card.quizTitle
     }
 }
 
