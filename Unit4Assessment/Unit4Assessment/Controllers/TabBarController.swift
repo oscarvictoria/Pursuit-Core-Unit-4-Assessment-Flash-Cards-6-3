@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import DataPersistence
 
 class TabBarController: UITabBarController {
+    
+//    private var dataPersistance = DataPersistence<Article>(filename: "savedArticles.plist")
+    private var dataPersistance = DataPersistence<FlashCards>(filename: "savedCards.plist")
+    
     
     private lazy var cardsViewController: CardsViewController = {
       let vc = CardsViewController()
         vc.tabBarItem = UITabBarItem(title: "Cards", image: UIImage(systemName: "person"), tag: 0)
+        vc.dataPersistance = dataPersistance
+        vc.dataPersistance.delegate = vc
         return vc
     }()
     
@@ -20,6 +27,7 @@ class TabBarController: UITabBarController {
     private lazy var createCardsViewController: CreateCardViewController = {
         let vc = CreateCardViewController()
         vc.tabBarItem = UITabBarItem(title: "Create", image: UIImage(systemName: "photo"), tag: 1)
+        vc.dataPersistance = dataPersistance
         return vc
     }()
     
@@ -27,6 +35,8 @@ class TabBarController: UITabBarController {
     private lazy var searchCardsViewController: SearchCardViewController = {
         let vc = SearchCardViewController()
         vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "folder"), tag: 2)
+        vc.dataPersistance = dataPersistance
+        
         return vc
     }()
     
@@ -34,7 +44,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
-        viewControllers = [cardsViewController, createCardsViewController, searchCardsViewController]
+        viewControllers = [cardsViewController, UINavigationController(rootViewController: createCardsViewController), searchCardsViewController]
     }
     
 

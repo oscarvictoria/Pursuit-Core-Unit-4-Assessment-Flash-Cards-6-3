@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import DataPersistence
 
 class CardsViewController: UIViewController {
+    
+    public var dataPersistance: DataPersistence<FlashCards>!
+    
     
     var cardView = CardView()
     
     override func loadView() {
         view = cardView
+    }
+    
+    var cards = [FlashCards]() {
+        didSet {
+            print("\(cards.count) card was saved")
+        }
     }
     
     override func viewDidLoad() {
@@ -22,6 +32,16 @@ class CardsViewController: UIViewController {
         cardView.collectionView.dataSource = self
         cardView.collectionView.delegate = self
         cardView.collectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: "cardCell")
+        loadSavedCards()
+    }
+    
+    func loadSavedCards() {
+        do {
+            cards = try dataPersistance.loadItems().reversed()
+        } catch {
+            print("error")
+        }
+        
     }
     
     
@@ -47,5 +67,15 @@ extension CardsViewController: UICollectionViewDelegateFlowLayout {
         let itemWidth: CGFloat = maxSize.width
         let itemHeight: CGFloat = maxSize.height * 0.30
         return CGSize(width: itemWidth, height: itemHeight)
+    }
+}
+
+extension CardsViewController: DataPersistenceDelegate {
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        print("item was saved")
+    }
+    
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        print("item was deleted")
     }
 }

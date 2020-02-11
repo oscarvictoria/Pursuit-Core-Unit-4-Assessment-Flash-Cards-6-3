@@ -10,6 +10,13 @@ import UIKit
 
 class FavoritesCell: UICollectionViewCell {
     
+    public lazy var moreButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(systemName: "ellipsis.circle"), for: .normal)
+        button.addTarget(self, action: #selector(moreButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     public lazy var cardTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
@@ -29,7 +36,12 @@ class FavoritesCell: UICollectionViewCell {
         commonInit()
     }
     
+  @objc private func moreButtonPressed() {
+    print("more button pressed")
+    }
+    
     private func commonInit() {
+        configureButton()
         configureTitleLabel()
     }
     
@@ -40,6 +52,17 @@ class FavoritesCell: UICollectionViewCell {
             cardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 100),
             cardTitle.leadingAnchor.constraint(equalTo: leadingAnchor),
             cardTitle.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
+    private func configureButton() {
+        addSubview(moreButton)
+        moreButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            moreButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            moreButton.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -8),
+            moreButton.heightAnchor.constraint(equalToConstant: 32),
+            moreButton.widthAnchor.constraint(equalTo:  moreButton.heightAnchor)
         ])
     }
 }

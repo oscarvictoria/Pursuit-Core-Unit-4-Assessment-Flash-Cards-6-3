@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol CardCellDelegate: AnyObject {
+    func didPressSaveButton(cardCell: CardCell)
+}
+
 class CardCell: UICollectionViewCell {
+    
+    weak var delegate: CardCellDelegate?
     
     public lazy var addButton: UIButton = {
         let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "bookmark"), for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(saveCard), for: .touchUpInside)
         return button
     }()
     
@@ -37,6 +44,11 @@ class CardCell: UICollectionViewCell {
         commonInit()
     }
     
+   @objc func saveCard() {
+    delegate?.didPressSaveButton(cardCell: self)
+    }
+
+    
     private func commonInit() {
         configureAddButton()
         configureCardTtle()
@@ -49,7 +61,7 @@ class CardCell: UICollectionViewCell {
             addButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             addButton.heightAnchor.constraint(equalToConstant: 40),
-            addButton.widthAnchor.constraint(equalToConstant: 40)
+            addButton.widthAnchor.constraint(equalToConstant: 35)
             
         
         ])
