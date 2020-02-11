@@ -14,9 +14,18 @@ protocol CardCellDelegate: AnyObject {
 
 class CardCell: UICollectionViewCell {
     
+    public lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didLongPress(_:)))
+        return gesture
+    }()
+    
     var currentCard: FlashCards?
     
     weak var delegate: CardCellDelegate?
+    
+    private var isShowingImage = false
+
     
     public lazy var addButton: UIButton = {
         let button = UIButton()
@@ -32,7 +41,6 @@ class CardCell: UICollectionViewCell {
         label.text = "Hello World"
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.alpha = 0
         return label
     }()
     
@@ -40,7 +48,7 @@ class CardCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.numberOfLines = 0
-        label.alpha = 1
+        label.alpha = 0
         return label
     }()
     
@@ -58,12 +66,38 @@ class CardCell: UICollectionViewCell {
    @objc func saveCard() {
     delegate?.didPressSaveButton(cardCell: self)
     }
+    
+    @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began || gesture.state == .changed {
+            return
+        }
+        
+        isShowingImage.toggle()
+        animate()
+    }
+    
+    private func animate() {
+        let duration: Double = 2.0
+        if isShowingImage {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
+                self.cardLabel.alpha = 1.0
+                self.cardTitle.alpha = 0.0
+            }, completion: nil)
+        } else {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
+                self.cardLabel.alpha = 0.0
+                self.cardTitle.alpha = 1.0
+            }, completion: nil)
+        }
+        
+    }
 
     
     private func commonInit() {
         configureAddButton()
         configureCardTtle()
         configureCardLabel()
+        addGestureRecognizer(longPressGesture)
     }
     
     private func configureAddButton() {

@@ -14,6 +14,12 @@ protocol SavedCardCellDelegate: AnyObject {
 
 class FavoritesCell: UICollectionViewCell {
     
+    public lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didLongPress(_:)))
+        return gesture
+    }()
+    
     public var currentCard: FlashCards!
     
     weak var delegate: SavedCardCellDelegate?
@@ -31,7 +37,7 @@ class FavoritesCell: UICollectionViewCell {
         label.text = "Hello World"
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.alpha = 0
+//        label.alpha = 0
         return label
     }()
     
@@ -40,7 +46,7 @@ class FavoritesCell: UICollectionViewCell {
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.numberOfLines = 0
         label.text = "Hello World"
-        label.alpha = 1
+        label.alpha = 0
         return label
     }()
     
@@ -49,6 +55,7 @@ class FavoritesCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
+
     }
     
     required init?(coder: NSCoder) {
@@ -60,10 +67,37 @@ class FavoritesCell: UICollectionViewCell {
     delegate?.didSelectMoreButton(savedCardCell: self, card: currentCard)
     }
     
+    
+   @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
+       if gesture.state == .began || gesture.state == .changed {
+           return
+       }
+       
+       isShowingImage.toggle()
+       animate()
+   }
+    
+    private func animate() {
+        let duration: Double = 2.0
+        if isShowingImage {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
+                self.cardLabels.alpha = 1.0
+                self.cardTitle.alpha = 0.0
+            }, completion: nil)
+        } else {
+            UIView.transition(with: self, duration: duration, options: [.transitionFlipFromLeft], animations: {
+                self.cardLabels.alpha = 0.0
+                self.cardTitle.alpha = 1.0
+            }, completion: nil)
+        }
+        
+    }
+    
     private func commonInit() {
         configureButton()
         configureTitleLabel()
         configureCardLabels()
+        addGestureRecognizer(longPressGesture)
     }
     
     private func configureTitleLabel() {

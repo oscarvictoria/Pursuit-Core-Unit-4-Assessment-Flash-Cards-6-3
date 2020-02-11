@@ -21,9 +21,9 @@ class CreateCardViewController: UIViewController {
         view = createView
     }
     
-//    detailView.textView.text = "Caption Goes Here"
-//          detailView.textView.textColor = UIColor.lightGray
-
+    //    detailView.textView.text = "Caption Goes Here"
+    //          detailView.textView.textColor = UIColor.lightGray
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
@@ -46,7 +46,7 @@ class CreateCardViewController: UIViewController {
     }
     
     func configureNavBar() {
-    navigationItem.title = "Create Card"
+        navigationItem.title = "Create Card"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(create))
     }
@@ -61,7 +61,13 @@ class CreateCardViewController: UIViewController {
     }
     
     @objc private func cancel() {
-        print("Cancel button pressed")
+        clearText()
+    }
+    
+    func clearText() {
+        createView.textField.text = ""
+        createView.textViewOne.text = ""
+        createView.textViewTwo.text = ""
     }
     
 }
