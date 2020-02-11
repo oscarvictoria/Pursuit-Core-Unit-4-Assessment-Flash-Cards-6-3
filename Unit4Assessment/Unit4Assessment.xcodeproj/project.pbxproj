@@ -18,6 +18,8 @@
 		BE61849F23F2FE3F00CA891A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE61849E23F2FE3F00CA891A /* TabBarController.swift */; };
 		BE6184A123F2FEA200CA891A /* CreateCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A023F2FEA200CA891A /* CreateCardViewController.swift */; };
 		BE6184A323F2FECC00CA891A /* SearchCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A223F2FECC00CA891A /* SearchCardViewController.swift */; };
+		BE6184A523F3012100CA891A /* CardsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A423F3012100CA891A /* CardsAPIClient.swift */; };
+		BE6184A723F3025C00CA891A /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A623F3025C00CA891A /* Cards.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		BE61849E23F2FE3F00CA891A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BE6184A023F2FEA200CA891A /* CreateCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardViewController.swift; sourceTree = "<group>"; };
 		BE6184A223F2FECC00CA891A /* SearchCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardViewController.swift; sourceTree = "<group>"; };
+		BE6184A423F3012100CA891A /* CardsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsAPIClient.swift; sourceTree = "<group>"; };
+		BE6184A623F3025C00CA891A /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 		BE61849623F2FC4200CA891A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE6184A623F3025C00CA891A /* Cards.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 		BE61849723F2FC4A00CA891A /* Network Services */ = {
 			isa = PBXGroup;
 			children = (
+				BE6184A423F3012100CA891A /* CardsAPIClient.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -268,9 +274,11 @@
 				5790239C23F2EE39000AA216 /* CardsViewController.swift in Sources */,
 				BE6184A123F2FEA200CA891A /* CreateCardViewController.swift in Sources */,
 				BE6184A323F2FECC00CA891A /* SearchCardViewController.swift in Sources */,
+				BE6184A723F3025C00CA891A /* Cards.swift in Sources */,
 				BE61849F23F2FE3F00CA891A /* TabBarController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
+				BE6184A523F3012100CA891A /* CardsAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

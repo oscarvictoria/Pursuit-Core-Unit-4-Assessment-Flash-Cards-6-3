@@ -13,7 +13,15 @@ class CardsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .orange
-    // Do any additional setup after loading the view.
+    CardsAPIClient.getCards { (result) in
+        switch result {
+        case .failure(let appError):
+            print("app error \(appError)")
+        case .success(let cards):
+            dump(cards)
+        }
+    }
+ 
   }
 
 
