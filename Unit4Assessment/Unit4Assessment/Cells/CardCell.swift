@@ -14,6 +14,8 @@ protocol CardCellDelegate: AnyObject {
 
 class CardCell: UICollectionViewCell {
     
+    var currentCard: FlashCards?
+    
     weak var delegate: CardCellDelegate?
     
     public lazy var addButton: UIButton = {
@@ -30,6 +32,15 @@ class CardCell: UICollectionViewCell {
         label.text = "Hello World"
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.alpha = 0
+        return label
+    }()
+    
+    public lazy var cardLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.numberOfLines = 0
+        label.alpha = 1
         return label
     }()
     
@@ -52,6 +63,7 @@ class CardCell: UICollectionViewCell {
     private func commonInit() {
         configureAddButton()
         configureCardTtle()
+        configureCardLabel()
     }
     
     private func configureAddButton() {
@@ -75,6 +87,29 @@ class CardCell: UICollectionViewCell {
             cardTitle.leadingAnchor.constraint(equalTo: leadingAnchor),
             cardTitle.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
+    }
+
+    private func configureCardLabel() {
+        addSubview(cardLabel)
+        cardLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cardLabel.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 20),
+            cardLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cardLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
+    public func configure(for card: FlashCards) {
+        currentCard = card
+        cardTitle.text = card.quizTitle
+        cardLabel.text = """
+1. \(card.facts[0])
+        
+2. \(card.facts[1])
+
+
+"""
+        
     }
     
 }

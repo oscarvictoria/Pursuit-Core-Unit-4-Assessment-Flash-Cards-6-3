@@ -31,8 +31,20 @@ class FavoritesCell: UICollectionViewCell {
         label.text = "Hello World"
         label.textAlignment = .center
         label.numberOfLines = 0
+        label.alpha = 0
         return label
     }()
+    
+    public lazy var cardLabels: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.numberOfLines = 0
+        label.text = "Hello World"
+        label.alpha = 1
+        return label
+    }()
+    
+    private var isShowingImage = false
     
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
@@ -51,6 +63,7 @@ class FavoritesCell: UICollectionViewCell {
     private func commonInit() {
         configureButton()
         configureTitleLabel()
+        configureCardLabels()
     }
     
     private func configureTitleLabel() {
@@ -74,9 +87,24 @@ class FavoritesCell: UICollectionViewCell {
         ])
     }
     
+    private func configureCardLabels() {
+        addSubview(cardLabels)
+        cardLabels.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cardLabels.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 20),
+            cardLabels.leadingAnchor.constraint(equalTo: leadingAnchor),
+            cardLabels.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
     public func configure(for card: FlashCards) {
         currentCard = card
         cardTitle.text = card.quizTitle
+        cardLabels.text = """
+1. \(card.facts[0])
+        
+2. \(card.facts[1])
+"""
     }
 }
 

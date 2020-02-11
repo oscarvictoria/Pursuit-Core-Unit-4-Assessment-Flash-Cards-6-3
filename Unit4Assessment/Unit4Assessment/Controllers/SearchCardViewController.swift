@@ -51,9 +51,10 @@ extension SearchCardViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? CardCell else {
             fatalError("could not get cell")
         }
+    
         let card = cards[indexPath.row]
+        cell.configure(for: card)
         cell.backgroundColor = .systemBackground
-        cell.cardTitle.text = card.quizTitle
         cell.delegate = self
         
         return cell
