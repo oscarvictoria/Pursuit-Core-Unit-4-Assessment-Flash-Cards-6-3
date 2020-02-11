@@ -51,6 +51,25 @@ class CardsViewController: UIViewController {
     }
     
     
+    func deleteCard(indexPath: IndexPath, card: FlashCards) {
+        dataPersistance.synchronize(cards)
+        
+        do {
+            cards = try dataPersistance.loadItems()
+        } catch {
+            print("error")
+        }
+        
+        cards.remove(at: indexPath.row)
+        
+        do {
+            try dataPersistance.deleteItem(at: indexPath.row)
+        } catch {
+            print("error")
+        }
+    }
+    
+    
 }
 
 extension CardsViewController: UICollectionViewDataSource {
@@ -91,10 +110,16 @@ extension CardsViewController: DataPersistenceDelegate {
 
 extension CardsViewController: SavedCardCellDelegate {
     func didSelectMoreButton(savedCardCell: FavoritesCell, card: FlashCards ) {
+        guard let indexPath = cardView.collectionView.indexPath(for: savedCardCell) else {
+            return
+        }
+        
+        let cardObject = cards[indexPath.row]
+        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive)  { alertAction in
-            self.deleteCard(card)
+            self.deleteCard(indexPath: indexPath, card: cardObject)
         }
         
         alertController.addAction(cancelAction)
@@ -103,17 +128,5 @@ extension CardsViewController: SavedCardCellDelegate {
         
     }
     
-    private func deleteCard(_ card: FlashCards) {
-        guard let index = cards.firstIndex(of: card) else {
-            return
-        }
-        do {
-            try dataPersistance.deleteItem(at: index)
-        } catch {
-            print("error")
-        }
-    }
 }
-
-
 

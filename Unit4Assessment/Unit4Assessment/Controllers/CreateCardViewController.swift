@@ -61,7 +61,7 @@ class CreateCardViewController: UIViewController {
     }
     
     @objc private func cancel() {
-        clearText()
+       clearText()
     }
     
     func clearText() {
