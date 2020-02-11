@@ -9,6 +9,12 @@
 import UIKit
 
 class CreateCardViewController: UIViewController {
+    
+    var createView = CreateView()
+    
+    override func loadView() {
+        view = createView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

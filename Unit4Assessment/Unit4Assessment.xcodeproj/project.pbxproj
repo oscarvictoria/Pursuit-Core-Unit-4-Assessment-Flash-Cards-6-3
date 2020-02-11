@@ -24,6 +24,7 @@
 		BE6184AD23F30A1C00CA891A /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184AC23F30A1C00CA891A /* CardCell.swift */; };
 		BE6184AF23F3111E00CA891A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184AE23F3111E00CA891A /* CardView.swift */; };
 		BE6184B123F3130000CA891A /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184B023F3130000CA891A /* FavoritesCell.swift */; };
+		BE6184B323F3175500CA891A /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184B223F3175500CA891A /* CreateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		BE6184AC23F30A1C00CA891A /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		BE6184AE23F3111E00CA891A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		BE6184B023F3130000CA891A /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
+		BE6184B223F3175500CA891A /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				BE6184A823F3057A00CA891A /* SearchView.swift */,
 				BE6184AE23F3111E00CA891A /* CardView.swift */,
+				BE6184B223F3175500CA891A /* CreateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				BE6184B123F3130000CA891A /* FavoritesCell.swift in Sources */,
 				BE6184AD23F30A1C00CA891A /* CardCell.swift in Sources */,
 				BE61849F23F2FE3F00CA891A /* TabBarController.swift in Sources */,
+				BE6184B323F3175500CA891A /* CreateView.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
 				BE6184AF23F3111E00CA891A /* CardView.swift in Sources */,
