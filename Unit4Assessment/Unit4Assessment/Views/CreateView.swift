@@ -28,7 +28,6 @@ class CreateView: UIView {
         let textField = UITextField()
         textField.backgroundColor = .systemGray
         textField.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        textField.placeholder = "Title"
         return textField
     }()
     

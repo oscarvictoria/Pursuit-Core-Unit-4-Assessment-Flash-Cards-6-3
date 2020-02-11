@@ -20,11 +20,29 @@ class CreateCardViewController: UIViewController {
     override func loadView() {
         view = createView
     }
+    
+//    detailView.textView.text = "Caption Goes Here"
+//          detailView.textView.textColor = UIColor.lightGray
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
         configureNavBar()
+        configureTextFields()
+    }
+    
+    func configureTextFields() {
+        createView.textField.delegate = self
+        createView.textField.text = "Title goes here"
+        createView.textField.textColor = UIColor.lightGray
+        
+        createView.textViewOne.delegate = self
+        createView.textViewOne.text = "Write Something"
+        createView.textViewOne.textColor = UIColor.lightGray
+        
+        createView.textViewTwo.delegate = self
+        createView.textViewTwo.text = "Write Something"
+        createView.textViewTwo.textColor = UIColor.lightGray
     }
     
     func configureNavBar() {
@@ -34,7 +52,7 @@ class CreateCardViewController: UIViewController {
     }
     
     @objc private func create() {
-        let cardObject = FlashCards(id: "0", quizTitle: "Test Tile", facts: ["Some Facts"])
+        let cardObject = FlashCards(id: "0", quizTitle: createView.textField.text ?? "", facts: [createView.textViewOne.text, createView.textViewTwo.text])
         do {
             try dataPersistance.createItem(cardObject)
         } catch {
@@ -46,4 +64,23 @@ class CreateCardViewController: UIViewController {
         print("Cancel button pressed")
     }
     
+}
+
+extension CreateCardViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.textColor == UIColor.lightGray {
+            textField.text = ""
+            textField.textColor = UIColor.black
+        }
+    }
+    
+}
+
+extension CreateCardViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = ""
+            textView.textColor = UIColor.black
+        }
+    }
 }
