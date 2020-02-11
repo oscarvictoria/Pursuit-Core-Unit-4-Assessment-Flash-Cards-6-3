@@ -3,17 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790239723F2EE39000AA216 /* AppDelegate.swift */; };
 		5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790239923F2EE39000AA216 /* SceneDelegate.swift */; };
-		5790239C23F2EE39000AA216 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790239B23F2EE39000AA216 /* ViewController.swift */; };
-		5790239F23F2EE39000AA216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5790239D23F2EE39000AA216 /* Main.storyboard */; };
+		5790239C23F2EE39000AA216 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5790239B23F2EE39000AA216 /* CardsViewController.swift */; };
 		579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 579023A023F2EE3B000AA216 /* Assets.xcassets */; };
 		579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */; };
 		579023AF23F2EE3B000AA216 /* Unit4AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */; };
+		BE61849A23F2FCAA00CA891A /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BE61849923F2FCAA00CA891A /* NetworkHelper */; };
+		BE61849D23F2FCD800CA891A /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE61849C23F2FCD800CA891A /* ImageKit */; };
+		BE61849F23F2FE3F00CA891A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE61849E23F2FE3F00CA891A /* TabBarController.swift */; };
+		BE6184A123F2FEA200CA891A /* CreateCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A023F2FEA200CA891A /* CreateCardViewController.swift */; };
+		BE6184A323F2FECC00CA891A /* SearchCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A223F2FECC00CA891A /* SearchCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +34,16 @@
 		5790239423F2EE39000AA216 /* Unit4Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unit4Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5790239723F2EE39000AA216 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5790239923F2EE39000AA216 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5790239B23F2EE39000AA216 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5790239E23F2EE39000AA216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5790239B23F2EE39000AA216 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		579023A023F2EE3B000AA216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		579023A323F2EE3B000AA216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		579023A523F2EE3B000AA216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		579023AA23F2EE3B000AA216 /* Unit4AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Unit4AssessmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		579023AE23F2EE3B000AA216 /* Unit4AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit4AssessmentTests.swift; sourceTree = "<group>"; };
 		579023B023F2EE3B000AA216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE61849E23F2FE3F00CA891A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BE6184A023F2FEA200CA891A /* CreateCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCardViewController.swift; sourceTree = "<group>"; };
+		BE6184A223F2FECC00CA891A /* SearchCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE61849A23F2FCAA00CA891A /* NetworkHelper in Frameworks */,
+				BE61849D23F2FCD800CA891A /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,12 +87,12 @@
 		5790239623F2EE39000AA216 /* Unit4Assessment */ = {
 			isa = PBXGroup;
 			children = (
-				5790239723F2EE39000AA216 /* AppDelegate.swift */,
-				5790239923F2EE39000AA216 /* SceneDelegate.swift */,
-				5790239B23F2EE39000AA216 /* ViewController.swift */,
-				5790239D23F2EE39000AA216 /* Main.storyboard */,
-				579023A023F2EE3B000AA216 /* Assets.xcassets */,
-				579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */,
+				BE61849723F2FC4A00CA891A /* Network Services */,
+				BE61849623F2FC4200CA891A /* Models */,
+				BE61849523F2FC3900CA891A /* Cells */,
+				BE61849423F2FC3200CA891A /* Views */,
+				BE61849323F2FC2100CA891A /* Controllers */,
+				BE61849223F2FC0500CA891A /* Supporting Files */,
 				579023A523F2EE3B000AA216 /* Info.plist */,
 			);
 			path = Unit4Assessment;
@@ -97,6 +105,56 @@
 				579023B023F2EE3B000AA216 /* Info.plist */,
 			);
 			path = Unit4AssessmentTests;
+			sourceTree = "<group>";
+		};
+		BE61849223F2FC0500CA891A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */,
+				579023A023F2EE3B000AA216 /* Assets.xcassets */,
+				5790239923F2EE39000AA216 /* SceneDelegate.swift */,
+				5790239723F2EE39000AA216 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE61849323F2FC2100CA891A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5790239B23F2EE39000AA216 /* CardsViewController.swift */,
+				BE6184A023F2FEA200CA891A /* CreateCardViewController.swift */,
+				BE6184A223F2FECC00CA891A /* SearchCardViewController.swift */,
+				BE61849E23F2FE3F00CA891A /* TabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BE61849423F2FC3200CA891A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE61849523F2FC3900CA891A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BE61849623F2FC4200CA891A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE61849723F2FC4A00CA891A /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Network Services";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +173,10 @@
 			dependencies = (
 			);
 			name = Unit4Assessment;
+			packageProductDependencies = (
+				BE61849923F2FCAA00CA891A /* NetworkHelper */,
+				BE61849C23F2FCD800CA891A /* ImageKit */,
+			);
 			productName = Unit4Assessment;
 			productReference = 5790239423F2EE39000AA216 /* Unit4Assessment.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +227,10 @@
 				Base,
 			);
 			mainGroup = 5790238B23F2EE39000AA216;
+			packageReferences = (
+				BE61849823F2FCAA00CA891A /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */,
+				BE61849B23F2FCD800CA891A /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 5790239523F2EE39000AA216 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,7 +248,6 @@
 			files = (
 				579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */,
 				579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */,
-				5790239F23F2EE39000AA216 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5790239C23F2EE39000AA216 /* ViewController.swift in Sources */,
+				5790239C23F2EE39000AA216 /* CardsViewController.swift in Sources */,
+				BE6184A123F2FEA200CA891A /* CreateCardViewController.swift in Sources */,
+				BE6184A323F2FECC00CA891A /* SearchCardViewController.swift in Sources */,
+				BE61849F23F2FE3F00CA891A /* TabBarController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
 			);
@@ -225,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5790239D23F2EE39000AA216 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5790239E23F2EE39000AA216 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		579023A223F2EE3B000AA216 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,7 +464,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZEKMNK5YD3;
 				INFOPLIST_FILE = Unit4AssessmentTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZEKMNK5YD3;
 				INFOPLIST_FILE = Unit4AssessmentTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +531,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE61849823F2FCAA00CA891A /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/NetworkHelperSPM";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+		BE61849B23F2FCD800CA891A /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE61849923F2FCAA00CA891A /* NetworkHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE61849823F2FCAA00CA891A /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */;
+			productName = NetworkHelper;
+		};
+		BE61849C23F2FCD800CA891A /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE61849B23F2FCD800CA891A /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5790238C23F2EE39000AA216 /* Project object */;
 }
