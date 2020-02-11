@@ -15,7 +15,4 @@ class CreateCardViewController: UIViewController {
         view.backgroundColor = .systemGreen
     }
     
-
-    
-
 }

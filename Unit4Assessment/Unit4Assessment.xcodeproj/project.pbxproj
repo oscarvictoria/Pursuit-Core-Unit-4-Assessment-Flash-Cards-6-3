@@ -22,6 +22,8 @@
 		BE6184A723F3025C00CA891A /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A623F3025C00CA891A /* Cards.swift */; };
 		BE6184A923F3057A00CA891A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184A823F3057A00CA891A /* SearchView.swift */; };
 		BE6184AD23F30A1C00CA891A /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184AC23F30A1C00CA891A /* CardCell.swift */; };
+		BE6184AF23F3111E00CA891A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184AE23F3111E00CA891A /* CardView.swift */; };
+		BE6184B123F3130000CA891A /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184B023F3130000CA891A /* FavoritesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		BE6184A623F3025C00CA891A /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		BE6184A823F3057A00CA891A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		BE6184AC23F30A1C00CA891A /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		BE6184AE23F3111E00CA891A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		BE6184B023F3130000CA891A /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				BE6184A823F3057A00CA891A /* SearchView.swift */,
+				BE6184AE23F3111E00CA891A /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				BE6184AC23F30A1C00CA891A /* CardCell.swift */,
+				BE6184B023F3130000CA891A /* FavoritesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -282,10 +288,12 @@
 				BE6184A123F2FEA200CA891A /* CreateCardViewController.swift in Sources */,
 				BE6184A323F2FECC00CA891A /* SearchCardViewController.swift in Sources */,
 				BE6184A723F3025C00CA891A /* Cards.swift in Sources */,
+				BE6184B123F3130000CA891A /* FavoritesCell.swift in Sources */,
 				BE6184AD23F30A1C00CA891A /* CardCell.swift in Sources */,
 				BE61849F23F2FE3F00CA891A /* TabBarController.swift in Sources */,
 				5790239823F2EE39000AA216 /* AppDelegate.swift in Sources */,
 				5790239A23F2EE39000AA216 /* SceneDelegate.swift in Sources */,
+				BE6184AF23F3111E00CA891A /* CardView.swift in Sources */,
 				BE6184A523F3012100CA891A /* CardsAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

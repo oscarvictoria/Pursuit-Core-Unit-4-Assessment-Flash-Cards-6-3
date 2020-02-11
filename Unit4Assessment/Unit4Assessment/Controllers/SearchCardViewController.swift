@@ -56,7 +56,6 @@ extension SearchCardViewController: UICollectionViewDataSource {
           fatalError("could not get cell")
       }
         let card = cards[indexPath.row]
-        cell.backgroundColor = .systemBackground
         cell.cardTitle.text = card.cardTitle
         
         return cell
