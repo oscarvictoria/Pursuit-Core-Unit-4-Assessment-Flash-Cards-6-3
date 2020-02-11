@@ -8,15 +8,32 @@
 
 import Foundation
 
-struct Cards: Codable & Equatable {
-    let cards: [FlashCards]
-}
 
 struct FlashCards: Codable & Equatable {
     let id: String
-    let cardTitle: String
+    let quizTitle: String
     let facts: [String]
 }
+
+extension FlashCards {
+    static func getData() -> [FlashCards] {
+        var card = [FlashCards]()
+        guard let fileURL = Bundle.main.url(forResource: "Cards", withExtension: "json") else {
+            fatalError("could not locate json file")
+        }
+        
+        do {
+            let data = try Data(contentsOf: fileURL)
+            let cardData = try JSONDecoder().decode([FlashCards].self, from: data)
+            card = cardData
+        } catch {
+            print("failed to load contents \(error)")
+        }
+        
+        return card
+    }
+}
+
 
 
 

@@ -25,6 +25,7 @@
 		BE6184AF23F3111E00CA891A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184AE23F3111E00CA891A /* CardView.swift */; };
 		BE6184B123F3130000CA891A /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184B023F3130000CA891A /* FavoritesCell.swift */; };
 		BE6184B323F3175500CA891A /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6184B223F3175500CA891A /* CreateView.swift */; };
+		BE6184B723F33A5A00CA891A /* Cards.json in Resources */ = {isa = PBXBuildFile; fileRef = BE6184B623F33A5A00CA891A /* Cards.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		BE6184AE23F3111E00CA891A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		BE6184B023F3130000CA891A /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		BE6184B223F3175500CA891A /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
+		BE6184B623F33A5A00CA891A /* Cards.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cards.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		BE61849623F2FC4200CA891A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE6184B623F33A5A00CA891A /* Cards.json */,
 				BE6184A623F3025C00CA891A /* Cards.swift */,
 			);
 			path = Models;
@@ -269,6 +272,7 @@
 			files = (
 				579023A423F2EE3B000AA216 /* LaunchScreen.storyboard in Resources */,
 				579023A123F2EE3B000AA216 /* Assets.xcassets in Resources */,
+				BE6184B723F33A5A00CA891A /* Cards.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

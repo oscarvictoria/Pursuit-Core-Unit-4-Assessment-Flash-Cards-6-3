@@ -37,14 +37,7 @@ class SearchCardViewController: UIViewController {
     }
     
     func loadCards() {
-        CardsAPIClient.getCards { (result) in
-            switch result {
-            case .failure(let appError):
-                print("error \(appError)")
-            case .success(let cards):
-                self.cards = cards
-            }
-        }
+        cards = FlashCards.getData()
     }
     
 
@@ -64,7 +57,7 @@ extension SearchCardViewController: UICollectionViewDataSource {
         }
         let card = cards[indexPath.row]
         cell.backgroundColor = .systemBackground
-        cell.cardTitle.text = card.cardTitle
+        cell.cardTitle.text = card.quizTitle
         cell.delegate = self
         
         return cell

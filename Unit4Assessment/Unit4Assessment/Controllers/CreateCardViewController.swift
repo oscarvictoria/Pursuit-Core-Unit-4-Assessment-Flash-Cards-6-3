@@ -34,7 +34,7 @@ class CreateCardViewController: UIViewController {
     }
     
     @objc private func create() {
-        let cardObject = FlashCards(id: "0", cardTitle: "Test Tile", facts: ["Some Facts"])
+        let cardObject = FlashCards(id: "0", quizTitle: "Test Tile", facts: ["Some Facts"])
         do {
             try dataPersistance.createItem(cardObject)
         } catch {
