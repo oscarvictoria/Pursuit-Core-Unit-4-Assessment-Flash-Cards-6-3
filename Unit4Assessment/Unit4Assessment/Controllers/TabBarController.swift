@@ -34,7 +34,7 @@ class TabBarController: UITabBarController {
     
     private lazy var searchCardsViewController: SearchCardViewController = {
         let vc = SearchCardViewController()
-        vc.tabBarItem = UITabBarItem(title: "Search", image: .checkmark , tag: 2)
+        vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "eyeglasses") , tag: 2)
         vc.dataPersistance = dataPersistance
         
         return vc
