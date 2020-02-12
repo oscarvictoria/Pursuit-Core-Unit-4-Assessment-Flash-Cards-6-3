@@ -51,7 +51,7 @@ extension SearchCardViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? CardCell else {
             fatalError("could not get cell")
         }
-    
+        
         let card = cards[indexPath.row]
         cell.configure(for: card)
         cell.backgroundColor = .systemBackground
@@ -82,9 +82,18 @@ extension SearchCardViewController: CardCellDelegate {
         do {
             let oldItems = try dataPersistance.loadItems()
             if oldItems.contains(cardObject) {
-                print("Item is already saved")
+                let alert = UIAlertController(title: "Card is saved already", message: "No need to bookmark!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true)
             } else {
-              try dataPersistance.createItem(cardObject)
+                let itemHasBeenSaved = dataPersistance.hasItemBeenSaved(cardObject)
+                if itemHasBeenSaved == true {
+                } else {
+                    try dataPersistance.createItem(cardObject)
+                    let alert = UIAlertController(title: "Card saved", message: "The card was succesfully saved to your flash cards", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
             }
         } catch {
             print("error")
@@ -92,10 +101,4 @@ extension SearchCardViewController: CardCellDelegate {
     }
 }
 
-//let itemHasBeenSaved = dataPersistance.hasItemBeenSaved(cardObject)
-//             if itemHasBeenSaved == true {
-//                 print("the Item was already saved")
-//                 cardCell.addButton.isHidden = true
-//             } else {
-//                 print("The item was not saved")
-//             }
+

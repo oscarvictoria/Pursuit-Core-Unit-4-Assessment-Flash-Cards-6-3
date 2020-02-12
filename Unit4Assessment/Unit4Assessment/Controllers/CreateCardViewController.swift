@@ -21,9 +21,6 @@ class CreateCardViewController: UIViewController {
         view = createView
     }
     
-    //    detailView.textView.text = "Caption Goes Here"
-    //          detailView.textView.textColor = UIColor.lightGray
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGreen
@@ -33,15 +30,13 @@ class CreateCardViewController: UIViewController {
     
     func configureTextFields() {
         createView.textField.delegate = self
-        createView.textField.text = "Title goes here"
+        createView.textField.placeholder = "Title goes here"
         createView.textField.textColor = UIColor.lightGray
         
         createView.textViewOne.delegate = self
-        createView.textViewOne.text = "Write Something"
         createView.textViewOne.textColor = UIColor.lightGray
         
         createView.textViewTwo.delegate = self
-        createView.textViewTwo.text = "Write Something"
         createView.textViewTwo.textColor = UIColor.lightGray
     }
     
@@ -58,12 +53,16 @@ class CreateCardViewController: UIViewController {
         guard let title = createView.textField.text, !title.isEmpty,
             let fact = createView.textViewOne.text,!fact.isEmpty,
             let factTwo = createView.textViewTwo.text, !factTwo.isEmpty else {
-            print("need more context")
+                let alert = UIAlertController(title: "Sorry, could not create flash card", message: "Fill out all fields to create flashcard", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true)
             return
         }
-        
         let cardObject = FlashCards(id: "0", quizTitle: title, facts: [fact, factTwo])
         try dataPersistance.createItem(cardObject)
+        let alert = UIAlertController(title: "Flash Card succesfully created", message: "check your cards to see", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true)
             
         } catch {
             print("could not get card")

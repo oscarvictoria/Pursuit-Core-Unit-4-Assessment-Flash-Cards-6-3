@@ -123,10 +123,6 @@ extension CardsViewController: SavedCardCellDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive)  { alertAction in
             self.deleteCard(indexPath: indexPath, card: cardObject)
-            let searchCell = CardCell()
-            searchCell.addButton.isHidden = false
-            
-            
         }
         
         alertController.addAction(cancelAction)
