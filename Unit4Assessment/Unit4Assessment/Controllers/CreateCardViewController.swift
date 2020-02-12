@@ -89,6 +89,10 @@ extension CreateCardViewController: UITextFieldDelegate {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
 }
 
 extension CreateCardViewController: UITextViewDelegate {
@@ -98,4 +102,15 @@ extension CreateCardViewController: UITextViewDelegate {
             textView.textColor = UIColor.black
         }
     }
+  
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+         if(text == "\n") {
+             textView.resignFirstResponder()
+             return false
+         }
+         return true
+     }
+    
+    
+
 }
