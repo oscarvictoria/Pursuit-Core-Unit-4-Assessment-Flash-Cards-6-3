@@ -64,6 +64,7 @@ class CardsViewController: UIViewController {
         
         do {
             try dataPersistance.deleteItem(at: indexPath.row)
+            
         } catch {
             print("error")
         }
@@ -81,6 +82,7 @@ extension CardsViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cardCell", for: indexPath) as? FavoritesCell else {
             fatalError("error, could not get cell")
         }
+        
         let card = cards[indexPath.row]
         cell.configure(for: card)
         cell.backgroundColor = .systemRed
@@ -116,10 +118,15 @@ extension CardsViewController: SavedCardCellDelegate {
         
         let cardObject = cards[indexPath.row]
         
+        
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive)  { alertAction in
             self.deleteCard(indexPath: indexPath, card: cardObject)
+            let searchCell = CardCell()
+            searchCell.addButton.isHidden = false
+            
+            
         }
         
         alertController.addAction(cancelAction)
@@ -129,4 +136,5 @@ extension CardsViewController: SavedCardCellDelegate {
     }
     
 }
+
 

@@ -51,17 +51,27 @@ class CreateCardViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(create))
     }
     
+   
+    
     @objc private func create() {
-        let cardObject = FlashCards(id: "0", quizTitle: createView.textField.text ?? "", facts: [createView.textViewOne.text, createView.textViewTwo.text])
         do {
-            try dataPersistance.createItem(cardObject)
+        guard let title = createView.textField.text, !title.isEmpty,
+            let fact = createView.textViewOne.text,!fact.isEmpty,
+            let factTwo = createView.textViewTwo.text, !factTwo.isEmpty else {
+            print("need more context")
+            return
+        }
+        
+        let cardObject = FlashCards(id: "0", quizTitle: title, facts: [fact, factTwo])
+        try dataPersistance.createItem(cardObject)
+            
         } catch {
             print("could not get card")
         }
     }
     
     @objc private func cancel() {
-       clearText()
+        clearText()
     }
     
     func clearText() {

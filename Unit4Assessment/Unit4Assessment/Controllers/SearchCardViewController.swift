@@ -80,9 +80,22 @@ extension SearchCardViewController: CardCellDelegate {
         let cardObject = cards[indexPath.row]
         
         do {
-            try dataPersistance.createItem(cardObject)
+            let oldItems = try dataPersistance.loadItems()
+            if oldItems.contains(cardObject) {
+                print("Item is already saved")
+            } else {
+              try dataPersistance.createItem(cardObject)
+            }
         } catch {
             print("error")
         }
     }
 }
+
+//let itemHasBeenSaved = dataPersistance.hasItemBeenSaved(cardObject)
+//             if itemHasBeenSaved == true {
+//                 print("the Item was already saved")
+//                 cardCell.addButton.isHidden = true
+//             } else {
+//                 print("The item was not saved")
+//             }

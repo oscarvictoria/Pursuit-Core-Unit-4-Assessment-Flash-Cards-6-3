@@ -24,6 +24,7 @@ class CardCell: UICollectionViewCell {
     
     weak var delegate: CardCellDelegate?
     
+    
     private var isShowingImage = false
 
     
@@ -32,6 +33,7 @@ class CardCell: UICollectionViewCell {
         button.setBackgroundImage(UIImage(systemName: "bookmark"), for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(saveCard), for: .touchUpInside)
+        button.isHidden = false 
         return button
     }()
     
@@ -65,6 +67,10 @@ class CardCell: UICollectionViewCell {
     
    @objc func saveCard() {
     delegate?.didPressSaveButton(cardCell: self)
+    }
+    
+    @objc func buttonPressed() {
+      
     }
     
     @objc private func didLongPress(_ gesture: UILongPressGestureRecognizer) {
