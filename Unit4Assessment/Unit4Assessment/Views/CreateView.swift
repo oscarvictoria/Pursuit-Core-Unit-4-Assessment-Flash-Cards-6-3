@@ -65,7 +65,7 @@ class CreateView: UIView {
             textViewOne.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
             textViewOne.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             textViewOne.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            textViewOne.heightAnchor.constraint(equalToConstant: 170)
+            textViewOne.heightAnchor.constraint(equalToConstant: 130)
         ])
     }
     
@@ -76,7 +76,7 @@ class CreateView: UIView {
             textViewTwo.topAnchor.constraint(equalTo: textViewOne.bottomAnchor, constant: 20),
             textViewTwo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             textViewTwo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            textViewTwo.heightAnchor.constraint(equalToConstant: 170)
+            textViewTwo.heightAnchor.constraint(equalToConstant: 130)
         ])
     }
 }

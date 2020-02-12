@@ -56,7 +56,6 @@ extension SearchCardViewController: UICollectionViewDataSource {
         cell.configure(for: card)
         cell.backgroundColor = .systemBackground
         cell.delegate = self
-        
         return cell
         
     }

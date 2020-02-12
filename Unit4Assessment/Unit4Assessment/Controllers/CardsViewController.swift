@@ -128,7 +128,6 @@ extension CardsViewController: SavedCardCellDelegate {
         alertController.addAction(cancelAction)
         alertController.addAction(deleteAction)
         present(alertController, animated: true)
-        
     }
     
 }

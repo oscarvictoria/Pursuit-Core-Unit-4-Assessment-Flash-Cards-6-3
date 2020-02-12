@@ -26,7 +26,7 @@ class TabBarController: UITabBarController {
     
     private lazy var createCardsViewController: CreateCardViewController = {
         let vc = CreateCardViewController()
-        vc.tabBarItem = UITabBarItem(title: "Create", image: UIImage(systemName: "photo"), tag: 1)
+        vc.tabBarItem = UITabBarItem(title: "Create", image: UIImage(systemName: "pencil"), tag: 1)
         vc.dataPersistance = dataPersistance
         return vc
     }()
@@ -34,7 +34,7 @@ class TabBarController: UITabBarController {
     
     private lazy var searchCardsViewController: SearchCardViewController = {
         let vc = SearchCardViewController()
-        vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "folder"), tag: 2)
+        vc.tabBarItem = UITabBarItem(title: "Search", image: .checkmark , tag: 2)
         vc.dataPersistance = dataPersistance
         
         return vc
